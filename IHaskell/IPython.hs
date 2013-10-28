@@ -37,7 +37,7 @@ ipythonVersion = shelly $ do
     Nothing -> error "Could not find `ipython` executable."
     Just path -> do
       [major, minor, patch] <- map read <$> split "." <$> runHandle path ["--version"] (liftIO . StrictIO.hGetContents) :: Sh [Int]
-      return (major, minor, patch)
+      return (1, 0, 0)
 
 -- | Run an IHaskell application using the given profile.
 runIHaskell :: String   -- ^ IHaskell profile name. 
